@@ -1,4 +1,4 @@
-package middleware
+package x509middleware
 
 import (
 	"crypto/ecdsa"
@@ -25,7 +25,7 @@ var port = 8080
 func TestNonTLS(t *testing.T) {
 	mux := http.NewServeMux()
 
-	mux.Handle("/", NewX509Middleware(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+	mux.Handle("/", New(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
 		w.Write([]byte("ok"))
 	})))
 
@@ -106,7 +106,7 @@ func TestTls(t *testing.T) {
 
 	// Setup the server
 	mux := http.NewServeMux()
-	mux.Handle("/", NewX509Middleware(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+	mux.Handle("/", New(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
 		w.Write([]byte("ok"))
 	})))
 	mux.Handle("/no-auth", http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
