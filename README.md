@@ -13,7 +13,7 @@ less vulnerable easily accessible (like `/liveness`, `/readiness` and `/metrics`
 # Installation
 
 ```bash
-go get github.com/artur-borys/go-mtls@v0.0.1
+go get github.com/artur-borys/go-mtls@v0.0.3
 ```
 
 # Usage
